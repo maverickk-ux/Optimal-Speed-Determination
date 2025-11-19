@@ -14,7 +14,7 @@ This project models that trade-off and uses optimization techniques to find the 
 
 ---
 
-## ⚙️ Optimization Algorithms Used
+## Optimization Algorithms Used
 
 The following optimization algorithms are implemented and compared:
 
