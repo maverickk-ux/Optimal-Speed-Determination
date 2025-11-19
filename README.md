@@ -28,11 +28,7 @@ The following optimization algorithms are implemented and compared:
 
 
 Each method is evaluated based on:
-
-Convergence speed
-
-Number of iterations
-
-Stability
-
-Effectiveness across different traffic and passenger conditions
+- Convergence speed
+- Number of iterations
+- Stability
+- Effectiveness across different traffic and passenger conditions
