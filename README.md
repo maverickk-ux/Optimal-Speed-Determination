@@ -23,7 +23,7 @@ To achieve realistic optimization, the model integrates:
 
 A regularization term ensures the final speed is not too far from the traffic-adjusted desired speed.
 
-The optimization problem remains **convex** and smooth, making it ideal for classical optimization methods such as Newton and BFGS.
+The optimization problem remains **convex** and smooth, making it ideal for classical optimization methods such as Newton, Trust region method and BFGS.
 
 ---
 
