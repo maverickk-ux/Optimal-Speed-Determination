@@ -1,4 +1,4 @@
-<img width="874" height="518" alt="image" src="https://github.com/user-attachments/assets/ea8d9b9f-33da-4ec2-a2dc-efb833499f5c" /># Optimal Speed and Fuel Cost Minimization Using Optimization Algorithms
+# Optimal Speed and Fuel Cost Minimization Using Optimization Algorithms
 
 This project implements and compares classical optimization methods to determine the optimal driving speed that minimizes total travel cost, which includes fuel cost and time cost. The model incorporates real-world parameters such as traffic conditions, number of passengers, road gradient, engine efficiency, and fuel price.
 
