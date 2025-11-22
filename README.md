@@ -43,16 +43,16 @@ f(v) = \text{FuelCost}(v) + \lambda (v - v_{\text{pref}})^2
 Where:
 
 - **FuelCost(v)** includes baseline fuel consumption, engine capacity adjustment, and calibrated penalties.
-- **\(v_{\text{pref}}\)** decreases in high traffic and increases with engine capacity.
-- **\(\lambda\)** controls the strength of speed preference regularization.
+- **\( v_{\text{pref}} \)** decreases in high traffic and increases with engine capacity.
+- **\( \lambda \)** controls the strength of speed preference regularization.
 
 Additionally:
 
-- Fuel efficiency is highest in the mid-speed band (approximately 30–60% of speed range).
+- Fuel efficiency is highest in the mid-speed band (approximately **30–60%** of the speed range).
 - Penalties are added when the optimal speed lies outside this efficient range.
 - A target fuel calibration ensures outputs like:
-  - 400cc @ tau=0 → 0.37 L
-  - 400cc @ tau=1 → 0.45 L  
+  - **400cc @ tau = 0 → 0.37 L**
+  - **400cc @ tau = 1 → 0.45 L**
 
 ---
 
