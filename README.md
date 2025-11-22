@@ -131,6 +131,7 @@ It will generate a **summary table** and **final recommendation** on which metho
 ## 3. Providing Inputs to the Combined File
 
 The combined file (e.g., `CompareAllMethods.py`) will accept **the same inputs** as the individual methods:
+
 <img width="229" height="256" alt="image" src="https://github.com/user-attachments/assets/61d23630-82e8-48fc-aa22-88da625b9970" />
 
 
@@ -155,9 +156,9 @@ After correcting gradient mismatch in BFGS and aligning its objective with Newto
 
 | Metric | Newton Method | BFGS Method |
 |--------|----------------|-------------|
-| Convergence Speed | ⭐ Very Fast | ⭐⭐ Fast |
+| Convergence Speed |  Very Fast |  Fast |
 | Derivatives Used | \(f', f''\) | \(f'\) only |
-| Accuracy | ✔ Exact | ✔ Matches Newton |
+| Accuracy |  Exact |  Matches Newton |
 | Iterations | 3–6 | 2–5 |
 | Stability | Excellent | High |
 
