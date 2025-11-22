@@ -84,37 +84,50 @@ def fdoubleprime(v):
 def proj(v):
     return float(np.clip(v, v_min, v_max))
 
-# Newton's method with projection
-def newton_method(v0=40.0, tol=1e-6, max_iter=100, verbose=True):
-    iterations=0
+# steepest descent with projection
+def steepest_descent(v0=40.0, tol=1e-6, max_iter=100, verbose=True):
     v = proj(v0)
+    iterations=0
     if verbose:
         print()
-        print("Running Newton's Method...")
+        print("Running Steepest Descent algorithm...")
+        print(f"Inputs: D={D}, tau={tau}, C={C} cc, n={n}, w_avg={w_avg}")
         print(f"Computed v_pref (formula) = {v_pref_formula(tau, C, n, w_avg):.6f} km/h")
-        print(f"Starting Newton from v0 (projected) = {v:.6f} km/h, lambda={lambda_reg}")
-        print(f"Baseline fuel coefficients: K={K:.6e}, ce1={ce1:.6e}, ce2={ce2:.6e}")
+        print(f"Starting Steepest Descent from v0 (projected) = {v:.6f} km/h, lambda={lambda_reg}")
+        print(f"Fuel coeffs: ce1={ce1:.6e}, ce2={ce2:.6e}, K={K:.6e}")
+
     for k in range(1, max_iter + 1):
         g = fprime(v)
-        H = fdoubleprime(v)
         if abs(g) < tol:
             if verbose:
                 iterations=k-1
-                # print(f"Converged by gradient at iter {k-1}: |f'(v)|={abs(g):.3e} < {tol}")
             break
-        if abs(H) < 1e-14:
-            if verbose:
-                print("Hessian too small — stopping.")
-            break
-        step = g / H
-        v_new = proj(v - step)
+
+        # descent direction
+        step = -g
+        alpha = 1.0
+        f_v = f(v)
+
+        # Armijo backtracking
+        while True:
+            v_trial = proj(v + alpha*step)
+            if f(v_trial) <= f_v + 1e-4 * alpha * g * step:
+                break
+            alpha *= 0.5
+            if alpha < 1e-12:
+                break
+
+        v_new = v_trial
 
         if abs(v_new - v) < tol:
             v = v_new
             if verbose:
                 print(f"Converged by step size at iter {k}: |Δv| < {tol}")
+                iterations=k
             break
+
         v = v_new
+
     return v,iterations
 
 # Initial guess (user input; blank -> use v_pref)
@@ -131,7 +144,7 @@ else:
 v0 = proj(v0)
 
 # Run optimization (Newton)
-v_opt,iters = newton_method(v0=v0, verbose=True)
+v_opt,iters = steepest_descent(v0=v0, verbose=True)
 
 # Compute baseline FC and then apply conditional M/N adjustment to meet targets
 FC_base = FC_baseline_per_km(v_opt)            # L/km baseline
