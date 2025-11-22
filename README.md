@@ -152,15 +152,17 @@ This allows you to objectively compare all methods under identical conditions.
 
 # Performance Summary (To be updated)
 
-After correcting gradient mismatch in BFGS and aligning its objective with Newton’s, both methods now produce virtually identical results.
+The following table compares the performance of all three optimization methods implemented: **Newton**, **BFGS**, and **Trust-Region**.
 
-| Metric | Newton Method | BFGS Method |
-|--------|----------------|-------------|
-| Convergence Speed |  Very Fast |  Fast |
-| Derivatives Used | \(f', f''\) | \(f'\) only |
-| Accuracy |  Exact |  Matches Newton |
-| Iterations | 3–6 | 2–5 |
-| Stability | Excellent | High |
+| Metric | Newton Method | BFGS Method | Trust-Region Method |
+|--------|----------------|-------------|----------------------|
+| **Convergence Speed** | Very Fast | Fast | Moderate |
+| **Derivatives Used** | Uses full analytic \( f', f'' \) | Uses only \( f' \) (Hessian approximated) | Uses \( f' \) + model-based Hessian approximation |
+| **Accuracy** | Highest accuracy | Matches Newton after correction | Matches Newton for optimum value |
+| **Iterations** | 3–6 iterations | 2–5 iterations | 4–10 iterations (depends on radius updates) |
+| **Stability** | Excellent | High after tuning | Very High (robust to poor initial guesses) |
+| **Handles Bounds** | Requires projection | Requires projection | Built-in radius control makes it naturally stable near bounds |
+| **Best Use Case** | Smooth convex problems with reliable derivatives | When second derivative is expensive/unavailable | When initial guess is poor or gradient is noisy |
 
 ---
 
