@@ -170,4 +170,7 @@ After correcting gradient mismatch in BFGS and aligning its objective with Newto
 # Example Output (BFGS Method)
 <img width="874" height="518" alt="image" src="https://github.com/user-attachments/assets/3a433354-a57d-4e02-895d-16c3b120d2e5" />
 
+# Example Output (Trust Region Method)
+<img width="698" height="538" alt="image" src="https://github.com/user-attachments/assets/2be47297-96cb-4efa-ad9d-60970bc69ec5" />
 
+ 
