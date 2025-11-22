@@ -80,7 +80,7 @@ Additionally:
 
 ---
 
-# 📘 How To Use
+# How To Use
 
 This project provides **separate files for each optimization method**, as well as an upcoming **combined comparison script** that runs all methods together.
 
@@ -97,6 +97,7 @@ Each method is implemented in its own Python file:
 - `TrustRegion.py`
 
 All files accept the **same user inputs**, for example:
+
 <img width="394" height="197" alt="image" src="https://github.com/user-attachments/assets/2d985043-b118-4443-816d-8a77dc0318ab" />
 
 Running any of these files will execute the corresponding algorithm and output:
