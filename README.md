@@ -85,97 +85,112 @@ Additionally:
 
 ---
 
-# How To Use
+# How To Use the Optimization Methods
 
-This project provides **separate files for each optimization method**, as well as an upcoming **combined comparison script** that runs all methods together.
+This project includes separate Python files for each optimization algorithm.  
+All four methods use the **same input format**, making it easy to compare their performance.
 
 ---
 
-## 1. Running Individual Optimization Methods
+## 1. Running Each Optimization Method Separately
 
-Each method is implemented in its own Python file:
+Each optimization method is implemented in its own file:
 
-- `NewtonMethod_Final.py`
-- `BFGS_Final.py`
-- `GradientDescent.py`
-- `GradientDescent_LineSearch.py`
+### Files
+- `NewtonMethod.py`
+- `BFGS.py`
+- `SteepestDescent.py`
 - `TrustRegion.py`
 
-All files accept the **same user inputs**, for example:
+Each file takes the following inputs through the terminal:
 
 <img width="394" height="197" alt="image" src="https://github.com/user-attachments/assets/2d985043-b118-4443-816d-8a77dc0318ab" />
 
-Running any of these files will execute the corresponding algorithm and output:
 
-- Optimal speed  
-- Fuel used  
+### What each script outputs:
+- Optimal speed \( v^* \)  
+- Total fuel used  
 - Fuel cost  
 - Regularization penalty  
+- Total fuel cost at optimal speed  
 - Number of iterations  
+- Method-specific diagnostics (Newton gradient, BFGS updates, TR radius, etc.)
 
-This allows you to easily check and understand the performance of each method independently.
+### Example Output (Newton Method)
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/d811e5ff-48dc-49f6-8059-6fb06a0cce1b" />
+
+### Example Output (BFGS Method)
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/52f2444a-8678-466f-a902-db72f926f4c0" />
+
+### Example Output (Trust Region Method)
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/8f9f6853-03c1-41e4-87b8-bbbe9fb4bed5" />
+
+### Example Output (Steepest Descent)
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/cd4ad1a1-2dd1-425a-97da-7b36ee9bd29f" />
+
+All four methods converge to the **same optimal speed**, proving correctness and consistency.
 
 ---
 
-## 2. Combined Comparison File (Upcoming)
+## 2. Combined Comparison Script (Coming Soon)
 
-We are preparing a **combined comparison script** that:
+A new file called: CompareAllMethods.py will be added shortly.
 
-- Imports all individual optimization method files  
-- Runs each method on **2–3 predefined test cases**  
-- Measures:
-  - Convergence speed  
-  - Fuel cost  
-  - Number of iterations  
-  - Stability  
+This script will:
 
-It will generate a **summary table** and **final recommendation** on which method is best suited for this optimization problem.
+### Automatically:
+- Import and run all four methods  
+- Use the same inputs for each method  
+- Run multiple test cases (2–3 preset scenarios)  
+
+### Produce:
+- A comparison table  
+- Iteration count comparison  
+- Convergence speed comparison  
+- Fuel cost differences  
+- Regularization penalty differences  
+- Execution-time comparison  
+- A final recommendation on the best method  
+
+### The script will also generate:
+- **Plots**, including:
+  - Convergence curves  
+  - Speed–cost profile  
+  - Fuel consumption vs. speed  
+  - Method-wise comparison charts  
+
+Space reserved for this section:
+
+
+
 
 ---
 
 ## 3. Providing Inputs to the Combined File
 
-The combined file (e.g., `CompareAllMethods.py`) will accept **the same inputs** as the individual methods:
+`CompareAllMethods.py` will accept **exactly the same inputs** as the individual files:
 
 <img width="229" height="256" alt="image" src="https://github.com/user-attachments/assets/61d23630-82e8-48fc-aa22-88da625b9970" />
 
 
-Once entered, the script will:
 
-- Automatically apply these inputs to every optimization method  
-- Run each solver  
-- Print a comparison summary showing:
-  - Optimal speeds  
-  - Fuel consumption  
-  - Cost  
-  - Iterations  
-  - Execution time  
+After entering them only once, the script will:
 
-This allows you to objectively compare all methods under identical conditions.
+- Pass the inputs to all optimization methods  
+- Run them sequentially  
+- Display a combined, aligned comparison report  
 
 ---
 
-# Performance Summary (To be updated)
+# Summary of Current Method Behaviour
 
-The following table compares the performance of all three optimization methods implemented: **Newton**, **BFGS**, and **Trust-Region**.
-
-| Metric | Newton Method | BFGS Method | Trust-Region Method |
-|--------|----------------|-------------|----------------------|
-| **Convergence Speed** | Very Fast | Fast | Moderate |
-| **Derivatives Used** | Uses full analytic \( f', f'' \) | Uses only \( f' \) (Hessian approximated) | Uses \( f' \) + model-based Hessian approximation |
-| **Accuracy** | Highest accuracy | Matches Newton after correction | Matches Newton for optimum value |
-| **Iterations** | 3–6 iterations | 2–5 iterations | 4–10 iterations (depends on radius updates) |
-| **Stability** | Excellent | High after tuning | Very High (robust to poor initial guesses) |
-| **Handles Bounds** | Requires projection | Requires projection | Built-in radius control makes it naturally stable near bounds |
-| **Best Use Case** | Smooth convex problems with reliable derivatives | When second derivative is expensive/unavailable | When initial guess is poor or gradient is noisy |
+| Metric | Newton | BFGS | Steepest Descent | Trust-Region |
+|--------|--------|------|------------------|--------------|
+| Convergence Speed | Very Fast | Fast | Moderate | Fast |
+| Iterations (typical) | 4–6 | 6–10 | 10–15 | 4–8 |
+| Derivatives Used | \( f', f'' \) | \( f' \) only | \( f' \) only | \( f', f'' \) (model) |
+| Accuracy | Exact | Matches Newton | Matches Newton | Matches Newton |
+| Robustness | High | High | Medium | Very High |
+| Best Use Case | Clean convex problems | When Hessian not available | Simple baseline solver | Poor initial guesses / unstable gradients |
 
 ---
-
-# Example Output (Newton Method)
-<img width="901" height="553" alt="image" src="https://github.com/user-attachments/assets/ab1bf1bb-b2cc-4641-b1f1-21c4a60c747f" />
-
-# Example Output (BFGS Method)
-<img width="874" height="518" alt="image" src="https://github.com/user-attachments/assets/3a433354-a57d-4e02-895d-16c3b120d2e5" />
-
-# Example Output (Trust Region Method)
-<img width="698" height="538" alt="image" src="https://github.com/user-attachments/assets/2be47297-96cb-4efa-ad9d-60970bc69ec5" />
