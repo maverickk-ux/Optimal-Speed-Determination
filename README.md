@@ -4,6 +4,11 @@ This project implements and compares classical optimization methods to determine
 
 This project was developed as part of an Optimization Course Project.
 
+ # Team: BP
+- K V Shashank Pai (BT2024250)
+- Varshith M Gowda (BT2024227)
+- Muppana Jatin (BT2024127)
+
 ## Project Overview
 Commuters face a trade-off between fuel efficiency and travel time. Driving too slowly increases travel time, while driving too fast increases fuel consumption due to aerodynamic drag.
 
@@ -174,5 +179,3 @@ The following table compares the performance of all three optimization methods i
 
 # Example Output (Trust Region Method)
 <img width="698" height="538" alt="image" src="https://github.com/user-attachments/assets/2be47297-96cb-4efa-ad9d-60970bc69ec5" />
-
- 
