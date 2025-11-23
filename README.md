@@ -184,7 +184,7 @@ The script also generates a set of plots for visual analysis.
 A 2×2 subplot shows:
 
 1. **Iterations per method**  
-2. **Optimal speed \(v^\*\)**  
+2. **Optimal speed  $\(v^\*\)$**  
 3. **Total fuel used**  
 4. **Total cost (fuel + regularization)**  
 
@@ -197,7 +197,7 @@ Using per-iteration histories for **Steepest Descent, Newton, BFGS, and Trust Re
 1. **Gradient norm vs iteration** (log scale)  
 2. **Step magnitude vs iteration** (log scale)  
 3. **Objective value vs iteration**  
-4. **Objective \(f(v)\) with method trajectories in \(v\)-space**  
+4. **Objective $\(f(v)\)$ with method trajectories in $\(v\)$-space**  
    - Yellow curve: continuous objective \(f(v)\)  
    - Markers: iterates from each method moving toward the minimum  
 
@@ -205,7 +205,6 @@ These diagnostic plots show how quickly each method converges, how aggressively 
 
 ### 2.3 How to Run
 
-```bash
 python CompareAllMethods.py
 
 ## 3. Providing Inputs to the Combined File
@@ -223,6 +222,7 @@ After entering them only once, the script will:
 - Display a combined, aligned comparison report  
 
 ---
+```
 
 # Summary of Current Method Behaviour
 
