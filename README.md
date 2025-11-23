@@ -35,12 +35,16 @@ The optimization problem remains **convex** and smooth, making it ideal for clas
 # Mathematical Model
 
 The cost function minimized is:
-$$ f(v) = FuelCost(v) + \lambda (v - v_{pref})^2 $$
+
+$$
+f(v) = \text{FuelCost}(v) + \lambda (v - v_{\text{pref}})^2
+$$
+
 Where:
 
 - **FuelCost(v)** includes baseline fuel consumption, engine capacity adjustment, and calibrated penalties.
-- **\( v_{\text{pref}} \)** decreases in high traffic and increases with engine capacity.
-- **\( \lambda \)** controls the strength of speed preference regularization.
+- **$( v_{\text{pref}} \)$** decreases in high traffic and increases with engine capacity.
+- **$( \lambda \)$** controls the strength of speed preference regularization.
 
 Additionally:
 
@@ -104,7 +108,7 @@ Each file takes the following inputs through the terminal:
 
 
 ### What each script outputs:
-- Optimal speed \( v^* \)  
+- Optimal speed $\( v^* \)$  
 - Total fuel used  
 - Fuel cost  
 - Regularization penalty  
