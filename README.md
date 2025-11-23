@@ -222,7 +222,6 @@ After entering them only once, the script will:
 - Display a combined, aligned comparison report  
 
 ---
-```
 
 # Summary of Current Method Behaviour
 
