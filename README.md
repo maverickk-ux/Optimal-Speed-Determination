@@ -51,8 +51,8 @@ Additionally:
 - Fuel efficiency is highest in the mid-speed band (approximately **30–60%** of the speed range).
 - Penalties are added when the optimal speed lies outside this efficient range.
 - A target fuel calibration ensures outputs like:
-  - **400cc @ tau = 0 → 0.37 L**
-  - **400cc @ tau = 1 → 0.45 L**
+  - **400cc @ tau = 0 → 0.37 L , for D=10km, n=1**
+  - **400cc @ tau = 1 → 0.45 L , for D=10km, n=1**
 
 ---
 
@@ -63,23 +63,19 @@ Additionally:
 - Slowest convergence  
 - Good introductory baseline  
 
-### **2️. Gradient Descent with Armijo Line Search**
-- Adaptive step size  
-- More stable and accurate than fixed-step GD  
-
-### **3️. Newton's Method**
+### **2. Newton's Method**
 - Uses analytic first and second derivatives  
 - Very fast convergence (3–6 iterations)  
 - Most accurate  
 - Serves as the **reference method**  
 
-### **4️. Quasi-Newton Method (BFGS)**
+### **3. Quasi-Newton Method (BFGS)**
 - Does not require second derivative  
 - Builds inverse Hessian approximation  
 - After tuning, matches Newton’s performance  
 - Converges in 2–5 iterations  
 
-### **5️. Trust-Region Method**
+### **4. Trust-Region Method**
 - Robust for poor starting points  
 - Controls steps using region radius  
 
