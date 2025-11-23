@@ -119,7 +119,7 @@ Each file takes the following inputs through the terminal:
 <img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/52f2444a-8678-466f-a902-db72f926f4c0" />
 
 ### Example Output (Trust Region Method)
-<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/5c98097c-665d-498f-b448-ee18b5e0a236" />
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/665edcd5-5b69-42b1-a2a7-796b3fb9a148" />
 
 ### Example Output (Steepest Descent)
 <img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/cd4ad1a1-2dd1-425a-97da-7b36ee9bd29f" />
