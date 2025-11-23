@@ -35,11 +35,7 @@ The optimization problem remains **convex** and smooth, making it ideal for clas
 # Mathematical Model
 
 The cost function minimized is:
-
-\[
-f(v) = \text{FuelCost}(v) + \lambda (v - v_{\text{pref}})^2
-\]
-
+$$ f(v) = FuelCost(v) + \lambda (v - v_{pref})^2 $$
 Where:
 
 - **FuelCost(v)** includes baseline fuel consumption, engine capacity adjustment, and calibrated penalties.
