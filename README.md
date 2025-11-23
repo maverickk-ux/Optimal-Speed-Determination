@@ -128,39 +128,85 @@ All four methods converge to the **same optimal speed**, proving correctness and
 
 ---
 
-## 2. Combined Comparison Script (Coming Soon)
+## 2. Combined Comparison Script – Final Implementation
 
-A new file called: CompareAllMethods.py will be added shortly.
+We implemented a single integrated Python script, **`CompareAllMethods.py`**, which runs and compares all four optimization methods on the same cost function and inputs:
 
-This script will:
+- **Steepest Descent** (Armijo backtracking)  
+- **Newton’s Method**  
+- **BFGS (quasi-Newton)**  
+- **Trust-Region Method**
 
-### Automatically:
-- Import and run all four methods  
-- Use the same inputs for each method  
-- Run multiple test cases (2–3 preset scenarios)  
+### 2.1 What the Script Does
 
-### Produce:
-- A comparison table  
-- Iteration count comparison  
-- Convergence speed comparison  
-- Fuel cost differences  
-- Regularization penalty differences  
-- Execution-time comparison  
-- A final recommendation on the best method  
+For a given set of user inputs:
 
-### The script will also generate:
-- **Plots**, including:
-  - Convergence curves  
-  - Speed–cost profile  
-  - Fuel consumption vs. speed  
-  - Method-wise comparison charts  
+- Distance \(D\)  
+- Traffic index \(\tau\)  
+- Number of passengers \(n\)  
+- Engine capacity \(C\) (cc)  
+- Speed bounds \([v_{\min}, v_{\max}]\)  
+- Initial guess \(v_0\)
 
-Space reserved for this section:
+the script:
 
+1. Builds a **common objective function**
+   \[
+   f(v) = \text{FuelCost}(v) + \text{TimeCost}(v) + \lambda_{\text{reg}}\,(v - v_{\text{pref}})^2
+   \]
+   so all methods optimize exactly the same model.
 
+2. Runs **all four methods** from the same initial guess \(v_0\) with box constraints enforced via projection.
 
+3. Prints a **detailed result block** for each method:
+   - Number of iterations  
+   - Optimal speed \(v^\*\) (km/h)  
+   - Total fuel used (L)  
+   - Fuel cost  
+   - Regularization penalty  
+   - Total cost (fuel + penalty)
 
----
+4. Produces a **comparison table** summarizing:
+   - Method  
+   - Iteration count  
+   - Optimal speed  
+   - Fuel consumption  
+   - Total cost  
+
+This allows direct comparison of accuracy and efficiency across all algorithms.
+
+### 2.2 Plots Generated
+
+The script also generates a set of plots for visual analysis.
+
+#### (a) 2×2 Method Comparison Dashboard
+
+A 2×2 subplot shows:
+
+1. **Iterations per method**  
+2. **Optimal speed \(v^\*\)**  
+3. **Total fuel used**  
+4. **Total cost (fuel + regularization)**  
+
+These bar charts make it easy to see which method converges fastest and whether all methods agree on the final solution.
+
+#### (b) Convergence-Diagnostics Plots
+
+Using per-iteration histories for **Steepest Descent, Newton, BFGS, and Trust Region**, the script plots:
+
+1. **Gradient norm vs iteration** (log scale)  
+2. **Step magnitude vs iteration** (log scale)  
+3. **Objective value vs iteration**  
+4. **Objective \(f(v)\) with method trajectories in \(v\)-space**  
+   - Yellow curve: continuous objective \(f(v)\)  
+   - Markers: iterates from each method moving toward the minimum  
+
+These diagnostic plots show how quickly each method converges, how aggressively it updates the speed, and how their paths differ while still reaching essentially the same optimal speed.
+
+### 2.3 How to Run
+
+```bash
+python CompareAllMethods.py
 
 ## 3. Providing Inputs to the Combined File
 
